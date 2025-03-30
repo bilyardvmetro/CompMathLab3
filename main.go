@@ -30,7 +30,7 @@ func findBreakpoints(f func(x float64) float64, a float64, b float64, n int) []f
 	breakpoints := make([]float64, 0, n)
 	h := (b - a) / float64(n)
 
-	for i := 0; i < n; i++ {
+	for i := 0; i <= n; i++ {
 		x := a + float64(i)*h
 		y := f(x)
 		//fmt.Println(y)
@@ -98,7 +98,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	breakpoints := findBreakpoints(functions[ans-1], a, b, int(math.Ceil(b-a)*2))
+	breakpoints := findBreakpoints(functions[ans-1], a, b, int(math.Ceil(b-a)*10))
 
 	if len(breakpoints) != 0 {
 		fmt.Printf("Найдены разрывы в точках: %v\n", breakpoints)
